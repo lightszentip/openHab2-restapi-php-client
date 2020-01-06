@@ -1,0 +1,1848 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">99</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1482556111"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1482556111" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1804336874"></a>
+                                <a href="../namespaces/Swagger.html" style="margin-left: 30px; padding-left: 0">Swagger</a>
+            </div>
+            <div id="namespace-1804336874" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1831582432"></a>
+                                <a href="../namespaces/Swagger.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-1831582432" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-976646691"></a>
+                                <a href="../namespaces/Swagger.Client.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-976646691" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Api.BindingsApi.html">BindingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ChannelTypesApi.html">ChannelTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ConfigDescriptionsApi.html">ConfigDescriptionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DefaultApi.html">DefaultApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DiscoveryApi.html">DiscoveryApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ExtensionsApi.html">ExtensionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabotApi.html">HabotApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabpanelApi.html">HabpanelApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.InboxApi.html">InboxApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ItemsApi.html">ItemsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.LinksApi.html">LinksApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.PersistenceApi.html">PersistenceApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ProfileTypesApi.html">ProfileTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ServicesApi.html">ServicesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.SitemapsApi.html">SitemapsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingsApi.html">ThingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingTypesApi.html">ThingTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.UuidApi.html">UuidApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.VoiceApi.html">VoiceApi</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1778662166"></a>
+                                <a href="../namespaces/Swagger.Client.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
+            </div>
+            <div id="namespace-1778662166" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Swagger.Client.Model.ModelInterface.html">ModelInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Model.BindingInfoDTO.html">BindingInfoDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Card.html">Card</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Channel.html">Channel</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDefinitionDTO.html">ChannelDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDTO.html">ChannelDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelGroupDefinitionDTO.html">ChannelGroupDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeDTO.html">ChannelTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeUID.html">ChannelTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelUID.html">ChannelUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChatReply.html">ChatReply</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Component.html">Component</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionDTO.html">ConfigDescriptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterDTO.html">ConfigDescriptionParameterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterGroupDTO.html">ConfigDescriptionParameterGroupDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">ConfigurableServiceDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.DiscoveryResultDTO.html">DiscoveryResultDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedItemDTO.html">EnrichedItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html">EnrichedThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EventOutput.html">EventOutput</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FilterCriteriaDTO.html">FilterCriteriaDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FirmwareStatusDTO.html">FirmwareStatusDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupFunctionDTO.html">GroupFunctionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupItemDTO.html">GroupItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HistoryDataBean.html">HistoryDataBean</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HumanLanguageInterpreterDTO.html">HumanLanguageInterpreterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Intent.html">Intent</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemChannelLinkDTO.html">ItemChannelLinkDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemHistoryDTO.html">ItemHistoryDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MappingDTO.html">MappingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MetadataDTO.html">MetadataDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.PageDTO.html">PageDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ParameterOptionDTO.html">ParameterOptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ProfileTypeDTO.html">ProfileTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.SitemapDTO.html">SitemapDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateDescription.html">StateDescription</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateOption.html">StateOption</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StrippedThingTypeDTO.html">StrippedThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Thing.html">Thing</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingDTO.html">ThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingHandler.html">ThingHandler</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingStatusInfo.html">ThingStatusInfo</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeDTO.html">ThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeUID.html">ThingTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingUID.html">ThingUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Type.html">Type</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.WidgetDTO.html">WidgetDTO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.ApiException.html">ApiException</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.HeaderSelector.html">HeaderSelector</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.ObjectSerializer.html">ObjectSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Swagger.Client.Api.html">\Swagger\Client\Api</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Swagger\Client\Api</small>SitemapsApi</h1>
+                    <p><em>SitemapsApi Class Doc Comment</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getConfig" class="">getConfig()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createEventSubscription" class="">createEventSubscription()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createEventSubscriptionWithHttpInfo" class="">createEventSubscriptionWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createEventSubscriptionAsync" class="">createEventSubscriptionAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createEventSubscriptionAsyncWithHttpInfo" class="">createEventSubscriptionAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getPageData" class="">getPageData()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getPageDataWithHttpInfo" class="">getPageDataWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getPageDataAsync" class="">getPageDataAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getPageDataAsyncWithHttpInfo" class="">getPageDataAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapData" class="">getSitemapData()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapDataWithHttpInfo" class="">getSitemapDataWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapDataAsync" class="">getSitemapDataAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapDataAsyncWithHttpInfo" class="">getSitemapDataAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapEvents" class="">getSitemapEvents()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapEventsWithHttpInfo" class="">getSitemapEventsWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapEventsAsync" class="">getSitemapEventsAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapEventsAsyncWithHttpInfo" class="">getSitemapEventsAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemaps" class="">getSitemaps()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapsWithHttpInfo" class="">getSitemapsWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapsAsync" class="">getSitemapsAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapsAsyncWithHttpInfo" class="">getSitemapsAsyncWithHttpInfo()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createEventSubscriptionRequest" class="">createEventSubscriptionRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getPageDataRequest" class="">getPageDataRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapDataRequest" class="">getSitemapDataRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapEventsRequest" class="">getSitemapEventsRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_getSitemapsRequest" class="">getSitemapsRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#method_createHttpClientOption" class="">createHttpClientOption()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#property_client" class="">$client</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#property_config" class="">$config</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.SitemapsApi.html#property_headerSelector" class="">$headerSelector</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Api.SitemapsApi.html"><div class="path-wrapper">Api/SitemapsApi.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Swagger\Client</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Swagger\Client\Api\SitemapsApi</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://github.com/swagger-api/swagger-codegen"><span class="namespace-wrapper">https://github.com/swagger-api/swagger-codegen</span></a></dd>
+                                                    
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Class</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Swagger Codegen team</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_client" name="property_client" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$client</h3>
+                <pre class="signature">$client : \GuzzleHttp\ClientInterface</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \GuzzleHttp\ClientInterface
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_config" name="property_config" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$config</h3>
+                <pre class="signature">$config : \Swagger\Client\Configuration</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_headerSelector" name="property_headerSelector" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$headerSelector</h3>
+                <pre class="signature">$headerSelector : \Swagger\Client\HeaderSelector</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Swagger.Client.HeaderSelector.html">\Swagger\Client\HeaderSelector</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\GuzzleHttp\ClientInterface  <span class="argument">$client = null</span>, \Swagger\Client\Configuration  <span class="argument">$config = null</span>, \Swagger\Client\HeaderSelector  <span class="argument">$selector = null</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\GuzzleHttp\ClientInterface</td>
+                                <td>$client </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a></td>
+                                <td>$config </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.HeaderSelector.html">\Swagger\Client\HeaderSelector</a></td>
+                                <td>$selector </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfig" name="method_getConfig" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfig()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfig() : \Swagger\Client\Configuration</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventSubscription" name="method_createEventSubscription" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEventSubscription()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventSubscription() : object</pre>
+                <p><em>Operation createEventSubscription</em></p>
+                <p>Creates a sitemap event subscription.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    object
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventSubscriptionWithHttpInfo" name="method_createEventSubscriptionWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEventSubscriptionWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventSubscriptionWithHttpInfo() : array</pre>
+                <p><em>Operation createEventSubscriptionWithHttpInfo</em></p>
+                <p>Creates a sitemap event subscription.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of object, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventSubscriptionAsync" name="method_createEventSubscriptionAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEventSubscriptionAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventSubscriptionAsync() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation createEventSubscriptionAsync</em></p>
+                <p>Creates a sitemap event subscription.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventSubscriptionAsyncWithHttpInfo" name="method_createEventSubscriptionAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">createEventSubscriptionAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventSubscriptionAsyncWithHttpInfo() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation createEventSubscriptionAsyncWithHttpInfo</em></p>
+                <p>Creates a sitemap event subscription.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPageData" name="method_getPageData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPageData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPageData(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$pageid</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$subscriptionid = null</span>) : void</pre>
+                <p><em>Operation getPageData</em></p>
+                <p>Polls the data for a sitemap.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscriptionid (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPageDataWithHttpInfo" name="method_getPageDataWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPageDataWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPageDataWithHttpInfo(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$pageid</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$subscriptionid = null</span>) : array</pre>
+                <p><em>Operation getPageDataWithHttpInfo</em></p>
+                <p>Polls the data for a sitemap.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscriptionid (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPageDataAsync" name="method_getPageDataAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPageDataAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPageDataAsync(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$pageid</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$subscriptionid = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getPageDataAsync</em></p>
+                <p>Polls the data for a sitemap.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscriptionid (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPageDataAsyncWithHttpInfo" name="method_getPageDataAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getPageDataAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPageDataAsyncWithHttpInfo(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$pageid</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$subscriptionid = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getPageDataAsyncWithHttpInfo</em></p>
+                <p>Polls the data for a sitemap.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscriptionid (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapData" name="method_getSitemapData" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapData()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapData(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$type = null</span>, string  <span class="argument">$jsoncallback = null</span>) : void</pre>
+                <p><em>Operation getSitemapData</em></p>
+                <p>Get sitemap by name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>type (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$jsoncallback </td>
+                                <td><p>jsoncallback (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapDataWithHttpInfo" name="method_getSitemapDataWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapDataWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapDataWithHttpInfo(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$type = null</span>, string  <span class="argument">$jsoncallback = null</span>) : array</pre>
+                <p><em>Operation getSitemapDataWithHttpInfo</em></p>
+                <p>Get sitemap by name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$jsoncallback </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapDataAsync" name="method_getSitemapDataAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapDataAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapDataAsync(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$type = null</span>, string  <span class="argument">$jsoncallback = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapDataAsync</em></p>
+                <p>Get sitemap by name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$jsoncallback </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapDataAsyncWithHttpInfo" name="method_getSitemapDataAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapDataAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapDataAsyncWithHttpInfo(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$type = null</span>, string  <span class="argument">$jsoncallback = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapDataAsyncWithHttpInfo</em></p>
+                <p>Get sitemap by name.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$jsoncallback </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapEvents" name="method_getSitemapEvents" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapEvents()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapEvents(string  <span class="argument">$subscriptionid</span>, string  <span class="argument">$sitemap = null</span>, string  <span class="argument">$pageid = null</span>) : void</pre>
+                <p><em>Operation getSitemapEvents</em></p>
+                <p>Get sitemap events.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscription id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemap </td>
+                                <td><p>sitemap name (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapEventsWithHttpInfo" name="method_getSitemapEventsWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapEventsWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapEventsWithHttpInfo(string  <span class="argument">$subscriptionid</span>, string  <span class="argument">$sitemap = null</span>, string  <span class="argument">$pageid = null</span>) : array</pre>
+                <p><em>Operation getSitemapEventsWithHttpInfo</em></p>
+                <p>Get sitemap events.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscription id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemap </td>
+                                <td><p>sitemap name (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapEventsAsync" name="method_getSitemapEventsAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapEventsAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapEventsAsync(string  <span class="argument">$subscriptionid</span>, string  <span class="argument">$sitemap = null</span>, string  <span class="argument">$pageid = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapEventsAsync</em></p>
+                <p>Get sitemap events.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscription id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemap </td>
+                                <td><p>sitemap name (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapEventsAsyncWithHttpInfo" name="method_getSitemapEventsAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapEventsAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapEventsAsyncWithHttpInfo(string  <span class="argument">$subscriptionid</span>, string  <span class="argument">$sitemap = null</span>, string  <span class="argument">$pageid = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapEventsAsyncWithHttpInfo</em></p>
+                <p>Get sitemap events.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscription id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemap </td>
+                                <td><p>sitemap name (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemaps" name="method_getSitemaps" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemaps()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemaps() : void</pre>
+                <p><em>Operation getSitemaps</em></p>
+                <p>Get all available sitemaps.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapsWithHttpInfo" name="method_getSitemapsWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapsWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapsWithHttpInfo() : array</pre>
+                <p><em>Operation getSitemapsWithHttpInfo</em></p>
+                <p>Get all available sitemaps.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of null, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapsAsync" name="method_getSitemapsAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapsAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapsAsync() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapsAsync</em></p>
+                <p>Get all available sitemaps.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapsAsyncWithHttpInfo" name="method_getSitemapsAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getSitemapsAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapsAsyncWithHttpInfo() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getSitemapsAsyncWithHttpInfo</em></p>
+                <p>Get all available sitemaps.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createEventSubscriptionRequest" name="method_createEventSubscriptionRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">createEventSubscriptionRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createEventSubscriptionRequest() : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;createEventSubscription&#039;</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getPageDataRequest" name="method_getPageDataRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getPageDataRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getPageDataRequest(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$pageid</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$subscriptionid = null</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getPageData&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscriptionid (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapDataRequest" name="method_getSitemapDataRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getSitemapDataRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapDataRequest(string  <span class="argument">$sitemapname</span>, string  <span class="argument">$accept_language = null</span>, string  <span class="argument">$type = null</span>, string  <span class="argument">$jsoncallback = null</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getSitemapData&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemapname </td>
+                                <td><p>sitemap name (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$accept_language </td>
+                                <td><p>language (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$type </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$jsoncallback </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapEventsRequest" name="method_getSitemapEventsRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getSitemapEventsRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapEventsRequest(string  <span class="argument">$subscriptionid</span>, string  <span class="argument">$sitemap = null</span>, string  <span class="argument">$pageid = null</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getSitemapEvents&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$subscriptionid </td>
+                                <td><p>subscription id (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$sitemap </td>
+                                <td><p>sitemap name (optional)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>string</td>
+                                <td>$pageid </td>
+                                <td><p>page id (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getSitemapsRequest" name="method_getSitemapsRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getSitemapsRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getSitemapsRequest() : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getSitemaps&#039;</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createHttpClientOption" name="method_createHttpClientOption" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">createHttpClientOption()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createHttpClientOption() : array</pre>
+                <p><em>Create http client option</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>on file opening failure</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of http client options</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">SitemapsApi.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Api/SitemapsApi.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 6th, 2020 at 10:20.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

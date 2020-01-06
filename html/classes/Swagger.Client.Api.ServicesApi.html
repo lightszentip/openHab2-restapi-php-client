@@ -1,0 +1,1936 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">99</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-462122726"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-462122726" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-324836408"></a>
+                                <a href="../namespaces/Swagger.html" style="margin-left: 30px; padding-left: 0">Swagger</a>
+            </div>
+            <div id="namespace-324836408" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1749195514"></a>
+                                <a href="../namespaces/Swagger.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-1749195514" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-769284834"></a>
+                                <a href="../namespaces/Swagger.Client.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-769284834" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Api.BindingsApi.html">BindingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ChannelTypesApi.html">ChannelTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ConfigDescriptionsApi.html">ConfigDescriptionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DefaultApi.html">DefaultApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DiscoveryApi.html">DiscoveryApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ExtensionsApi.html">ExtensionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabotApi.html">HabotApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabpanelApi.html">HabpanelApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.InboxApi.html">InboxApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ItemsApi.html">ItemsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.LinksApi.html">LinksApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.PersistenceApi.html">PersistenceApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ProfileTypesApi.html">ProfileTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ServicesApi.html">ServicesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.SitemapsApi.html">SitemapsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingsApi.html">ThingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingTypesApi.html">ThingTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.UuidApi.html">UuidApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.VoiceApi.html">VoiceApi</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-246907451"></a>
+                                <a href="../namespaces/Swagger.Client.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
+            </div>
+            <div id="namespace-246907451" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Swagger.Client.Model.ModelInterface.html">ModelInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Model.BindingInfoDTO.html">BindingInfoDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Card.html">Card</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Channel.html">Channel</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDefinitionDTO.html">ChannelDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDTO.html">ChannelDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelGroupDefinitionDTO.html">ChannelGroupDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeDTO.html">ChannelTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeUID.html">ChannelTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelUID.html">ChannelUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChatReply.html">ChatReply</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Component.html">Component</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionDTO.html">ConfigDescriptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterDTO.html">ConfigDescriptionParameterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterGroupDTO.html">ConfigDescriptionParameterGroupDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">ConfigurableServiceDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.DiscoveryResultDTO.html">DiscoveryResultDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedItemDTO.html">EnrichedItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html">EnrichedThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EventOutput.html">EventOutput</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FilterCriteriaDTO.html">FilterCriteriaDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FirmwareStatusDTO.html">FirmwareStatusDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupFunctionDTO.html">GroupFunctionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupItemDTO.html">GroupItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HistoryDataBean.html">HistoryDataBean</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HumanLanguageInterpreterDTO.html">HumanLanguageInterpreterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Intent.html">Intent</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemChannelLinkDTO.html">ItemChannelLinkDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemHistoryDTO.html">ItemHistoryDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MappingDTO.html">MappingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MetadataDTO.html">MetadataDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.PageDTO.html">PageDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ParameterOptionDTO.html">ParameterOptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ProfileTypeDTO.html">ProfileTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.SitemapDTO.html">SitemapDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateDescription.html">StateDescription</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateOption.html">StateOption</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StrippedThingTypeDTO.html">StrippedThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Thing.html">Thing</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingDTO.html">ThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingHandler.html">ThingHandler</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingStatusInfo.html">ThingStatusInfo</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeDTO.html">ThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeUID.html">ThingTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingUID.html">ThingUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Type.html">Type</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.WidgetDTO.html">WidgetDTO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.ApiException.html">ApiException</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.HeaderSelector.html">HeaderSelector</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.ObjectSerializer.html">ObjectSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Swagger.Client.Api.html">\Swagger\Client\Api</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Swagger\Client\Api</small>ServicesApi</h1>
+                    <p><em>ServicesApi Class Doc Comment</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfig" class="">getConfig()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_deleteConfiguration" class="">deleteConfiguration()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_deleteConfigurationWithHttpInfo" class="">deleteConfigurationWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_deleteConfigurationAsync" class="">deleteConfigurationAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_deleteConfigurationAsyncWithHttpInfo" class="">deleteConfigurationAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getAll" class="">getAll()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getAllWithHttpInfo" class="">getAllWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getAllAsync" class="">getAllAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getAllAsyncWithHttpInfo" class="">getAllAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getById" class="">getById()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getByIdWithHttpInfo" class="">getByIdWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getByIdAsync" class="">getByIdAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getByIdAsyncWithHttpInfo" class="">getByIdAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfiguration" class="">getConfiguration()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfigurationWithHttpInfo" class="">getConfigurationWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfigurationAsync" class="">getConfigurationAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfigurationAsyncWithHttpInfo" class="">getConfigurationAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getMultiConfigServicesByFactoryPid" class="">getMultiConfigServicesByFactoryPid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getMultiConfigServicesByFactoryPidWithHttpInfo" class="">getMultiConfigServicesByFactoryPidWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getMultiConfigServicesByFactoryPidAsync" class="">getMultiConfigServicesByFactoryPidAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getMultiConfigServicesByFactoryPidAsyncWithHttpInfo" class="">getMultiConfigServicesByFactoryPidAsyncWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_updateConfiguration" class="">updateConfiguration()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_updateConfigurationWithHttpInfo" class="">updateConfigurationWithHttpInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_updateConfigurationAsync" class="">updateConfigurationAsync()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_updateConfigurationAsyncWithHttpInfo" class="">updateConfigurationAsyncWithHttpInfo()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No constants found</em>
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_deleteConfigurationRequest" class="">deleteConfigurationRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getAllRequest" class="">getAllRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getByIdRequest" class="">getByIdRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getConfigurationRequest" class="">getConfigurationRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_getMultiConfigServicesByFactoryPidRequest" class="">getMultiConfigServicesByFactoryPidRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_updateConfigurationRequest" class="">updateConfigurationRequest()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#method_createHttpClientOption" class="">createHttpClientOption()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#property_client" class="">$client</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#property_config" class="">$config</a><br />
+                                                                    <a href="../classes/Swagger.Client.Api.ServicesApi.html#property_headerSelector" class="">$headerSelector</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Api.ServicesApi.html"><div class="path-wrapper">Api/ServicesApi.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Swagger\Client</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Swagger\Client\Api\ServicesApi</div>
+                            </dd>
+
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://github.com/swagger-api/swagger-codegen"><span class="namespace-wrapper">https://github.com/swagger-api/swagger-codegen</span></a></dd>
+                                                    
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Class</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Swagger Codegen team</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                        
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_client" name="property_client" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$client</h3>
+                <pre class="signature">$client : \GuzzleHttp\ClientInterface</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                \GuzzleHttp\ClientInterface
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_config" name="property_config" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$config</h3>
+                <pre class="signature">$config : \Swagger\Client\Configuration</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_headerSelector" name="property_headerSelector" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$headerSelector</h3>
+                <pre class="signature">$headerSelector : \Swagger\Client\HeaderSelector</pre>
+                <p><em></em></p>
+                
+
+                                <h4>Type</h4>
+                <a href="../classes/Swagger.Client.HeaderSelector.html">\Swagger\Client\HeaderSelector</a>
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(\GuzzleHttp\ClientInterface  <span class="argument">$client = null</span>, \Swagger\Client\Configuration  <span class="argument">$config = null</span>, \Swagger\Client\HeaderSelector  <span class="argument">$selector = null</span>) </pre>
+                <p><em></em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\GuzzleHttp\ClientInterface</td>
+                                <td>$client </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a></td>
+                                <td>$config </td>
+                                <td></td>
+                            </tr>
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.HeaderSelector.html">\Swagger\Client\HeaderSelector</a></td>
+                                <td>$selector </td>
+                                <td></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfig" name="method_getConfig" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfig()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfig() : \Swagger\Client\Configuration</pre>
+                <p><em></em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Swagger.Client.Configuration.html">\Swagger\Client\Configuration</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteConfiguration" name="method_deleteConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteConfiguration(string  <span class="argument">$service_id</span>) : string</pre>
+                <p><em>Operation deleteConfiguration</em></p>
+                <p>Deletes a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteConfigurationWithHttpInfo" name="method_deleteConfigurationWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteConfigurationWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteConfigurationWithHttpInfo(string  <span class="argument">$service_id</span>) : array</pre>
+                <p><em>Operation deleteConfigurationWithHttpInfo</em></p>
+                <p>Deletes a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of string, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteConfigurationAsync" name="method_deleteConfigurationAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteConfigurationAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteConfigurationAsync(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation deleteConfigurationAsync</em></p>
+                <p>Deletes a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteConfigurationAsyncWithHttpInfo" name="method_deleteConfigurationAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">deleteConfigurationAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteConfigurationAsyncWithHttpInfo(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation deleteConfigurationAsyncWithHttpInfo</em></p>
+                <p>Deletes a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAll" name="method_getAll" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAll()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAll() : array&lt;mixed,\Swagger\Client\Model\ConfigurableServiceDTO&gt;</pre>
+                <p><em>Operation getAll</em></p>
+                <p>Get all configurable services.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array&lt;mixed,<a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">\Swagger\Client\Model\ConfigurableServiceDTO</a>&gt;
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAllWithHttpInfo" name="method_getAllWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAllWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAllWithHttpInfo() : array</pre>
+                <p><em>Operation getAllWithHttpInfo</em></p>
+                <p>Get all configurable services.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of \Swagger\Client\Model\ConfigurableServiceDTO[], HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAllAsync" name="method_getAllAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAllAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAllAsync() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getAllAsync</em></p>
+                <p>Get all configurable services.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAllAsyncWithHttpInfo" name="method_getAllAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getAllAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAllAsyncWithHttpInfo() : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getAllAsyncWithHttpInfo</em></p>
+                <p>Get all configurable services.</p>
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getById" name="method_getById" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getById()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getById(string  <span class="argument">$service_id</span>) : \Swagger\Client\Model\ConfigurableServiceDTO</pre>
+                <p><em>Operation getById</em></p>
+                <p>Get configurable service for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">\Swagger\Client\Model\ConfigurableServiceDTO</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getByIdWithHttpInfo" name="method_getByIdWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getByIdWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getByIdWithHttpInfo(string  <span class="argument">$service_id</span>) : array</pre>
+                <p><em>Operation getByIdWithHttpInfo</em></p>
+                <p>Get configurable service for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of \Swagger\Client\Model\ConfigurableServiceDTO, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getByIdAsync" name="method_getByIdAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getByIdAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getByIdAsync(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getByIdAsync</em></p>
+                <p>Get configurable service for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getByIdAsyncWithHttpInfo" name="method_getByIdAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getByIdAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getByIdAsyncWithHttpInfo(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getByIdAsyncWithHttpInfo</em></p>
+                <p>Get configurable service for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfiguration" name="method_getConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfiguration(string  <span class="argument">$service_id</span>) : string</pre>
+                <p><em>Operation getConfiguration</em></p>
+                <p>Get service configuration for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfigurationWithHttpInfo" name="method_getConfigurationWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfigurationWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfigurationWithHttpInfo(string  <span class="argument">$service_id</span>) : array</pre>
+                <p><em>Operation getConfigurationWithHttpInfo</em></p>
+                <p>Get service configuration for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of string, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfigurationAsync" name="method_getConfigurationAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfigurationAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfigurationAsync(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getConfigurationAsync</em></p>
+                <p>Get service configuration for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfigurationAsyncWithHttpInfo" name="method_getConfigurationAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfigurationAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfigurationAsyncWithHttpInfo(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getConfigurationAsyncWithHttpInfo</em></p>
+                <p>Get service configuration for given service ID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMultiConfigServicesByFactoryPid" name="method_getMultiConfigServicesByFactoryPid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMultiConfigServicesByFactoryPid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMultiConfigServicesByFactoryPid(string  <span class="argument">$service_id</span>) : array&lt;mixed,\Swagger\Client\Model\ConfigurableServiceDTO&gt;</pre>
+                <p><em>Operation getMultiConfigServicesByFactoryPid</em></p>
+                <p>Get existing multiple context service configurations for the given factory PID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array&lt;mixed,<a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">\Swagger\Client\Model\ConfigurableServiceDTO</a>&gt;
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMultiConfigServicesByFactoryPidWithHttpInfo" name="method_getMultiConfigServicesByFactoryPidWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMultiConfigServicesByFactoryPidWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMultiConfigServicesByFactoryPidWithHttpInfo(string  <span class="argument">$service_id</span>) : array</pre>
+                <p><em>Operation getMultiConfigServicesByFactoryPidWithHttpInfo</em></p>
+                <p>Get existing multiple context service configurations for the given factory PID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of \Swagger\Client\Model\ConfigurableServiceDTO[], HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMultiConfigServicesByFactoryPidAsync" name="method_getMultiConfigServicesByFactoryPidAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMultiConfigServicesByFactoryPidAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMultiConfigServicesByFactoryPidAsync(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getMultiConfigServicesByFactoryPidAsync</em></p>
+                <p>Get existing multiple context service configurations for the given factory PID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMultiConfigServicesByFactoryPidAsyncWithHttpInfo" name="method_getMultiConfigServicesByFactoryPidAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getMultiConfigServicesByFactoryPidAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMultiConfigServicesByFactoryPidAsyncWithHttpInfo(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation getMultiConfigServicesByFactoryPidAsyncWithHttpInfo</em></p>
+                <p>Get existing multiple context service configurations for the given factory PID.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateConfiguration" name="method_updateConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateConfiguration(string  <span class="argument">$service_id</span>, \Swagger\Client\Api\map[string,object]  <span class="argument">$body = null</span>) : string</pre>
+                <p><em>Operation updateConfiguration</em></p>
+                <p>Updates a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Swagger\Client\Api\map[string,object]</td>
+                                <td>$body </td>
+                                <td><p>body (optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateConfigurationWithHttpInfo" name="method_updateConfigurationWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateConfigurationWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateConfigurationWithHttpInfo(string  <span class="argument">$service_id</span>, \Swagger\Client\Api\map[string,object]  <span class="argument">$body = null</span>) : array</pre>
+                <p><em>Operation updateConfigurationWithHttpInfo</em></p>
+                <p>Updates a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Swagger\Client\Api\map[string,object]</td>
+                                <td>$body </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\Swagger\Client\ApiException</dt>
+                            <dd><p>on non-2xx response</p></dd>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of string, HTTP status code, HTTP response headers (array of strings)</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateConfigurationAsync" name="method_updateConfigurationAsync" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateConfigurationAsync()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateConfigurationAsync(string  <span class="argument">$service_id</span>, \Swagger\Client\Api\map[string,object]  <span class="argument">$body = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation updateConfigurationAsync</em></p>
+                <p>Updates a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Swagger\Client\Api\map[string,object]</td>
+                                <td>$body </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateConfigurationAsyncWithHttpInfo" name="method_updateConfigurationAsyncWithHttpInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">updateConfigurationAsyncWithHttpInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateConfigurationAsyncWithHttpInfo(string  <span class="argument">$service_id</span>, \Swagger\Client\Api\map[string,object]  <span class="argument">$body = null</span>) : \GuzzleHttp\Promise\PromiseInterface</pre>
+                <p><em>Operation updateConfigurationAsyncWithHttpInfo</em></p>
+                <p>Updates a service configuration for given service ID and returns the old configuration.</p>
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Swagger\Client\Api\map[string,object]</td>
+                                <td>$body </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Promise\PromiseInterface
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_deleteConfigurationRequest" name="method_deleteConfigurationRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">deleteConfigurationRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">deleteConfigurationRequest(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;deleteConfiguration&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getAllRequest" name="method_getAllRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getAllRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getAllRequest() : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getAll&#039;</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getByIdRequest" name="method_getByIdRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getByIdRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getByIdRequest(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getById&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfigurationRequest" name="method_getConfigurationRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getConfigurationRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfigurationRequest(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getConfiguration&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getMultiConfigServicesByFactoryPidRequest" name="method_getMultiConfigServicesByFactoryPidRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">getMultiConfigServicesByFactoryPidRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getMultiConfigServicesByFactoryPidRequest(string  <span class="argument">$service_id</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;getMultiConfigServicesByFactoryPid&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_updateConfigurationRequest" name="method_updateConfigurationRequest" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">updateConfigurationRequest()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">updateConfigurationRequest(string  <span class="argument">$service_id</span>, \Swagger\Client\Api\map[string,object]  <span class="argument">$body = null</span>) : \GuzzleHttp\Psr7\Request</pre>
+                <p><em>Create request for operation &#039;updateConfiguration&#039;</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$service_id </td>
+                                <td><p>service ID (required)</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>\Swagger\Client\Api\map[string,object]</td>
+                                <td>$body </td>
+                                <td><p>(optional)</p></td>
+                            </tr>
+                                            </table>
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\InvalidArgumentException</dt>
+                            <dd></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    \GuzzleHttp\Psr7\Request
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_createHttpClientOption" name="method_createHttpClientOption" class="anchor"></a>
+            <article class="method">
+                <h3 class="protected ">createHttpClientOption()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">createHttpClientOption() : array</pre>
+                <p><em>Create http client option</em></p>
+                
+
+                
+                                    <h4>Throws</h4>
+                    <dl>
+                                                    <dt>\RuntimeException</dt>
+                            <dd><p>on file opening failure</p></dd>
+                                                                    </dl>
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>of http client options</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">ServicesApi.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Api/ServicesApi.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 6th, 2020 at 10:20.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>

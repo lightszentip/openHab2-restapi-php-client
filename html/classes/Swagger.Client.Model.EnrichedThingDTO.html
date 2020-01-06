@@ -1,0 +1,1867 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0"/>
+    <meta charset="utf-8"/>
+    <title>API Documentation</title>
+    <meta name="author" content=""/>
+    <meta name="description" content=""/>
+
+    <link href="../css/bootstrap-combined.no-icons.min.css" rel="stylesheet">
+    <link href="../css/font-awesome.min.css" rel="stylesheet">
+    <link href="../css/prism.css" rel="stylesheet" media="all"/>
+    <link href="../css/template.css" rel="stylesheet" media="all"/>
+    
+    <!--[if lt IE 9]>
+    <script src="../js/html5.js"></script>
+    <![endif]-->
+    <script src="../js/jquery-1.11.0.min.js"></script>
+    <script src="../js/ui/1.10.4/jquery-ui.min.js"></script>
+    <script src="../js/bootstrap.min.js"></script>
+    <script src="../js/jquery.smooth-scroll.js"></script>
+    <script src="../js/prism.min.js"></script>
+    <!-- TODO: Add http://jscrollpane.kelvinluck.com/ to style the scrollbars for browsers not using webkit-->
+    <script type="text/javascript">
+    function loadExternalCodeSnippets() {
+        Array.prototype.slice.call(document.querySelectorAll('pre[data-src]')).forEach(function (pre) {
+            var src = pre.getAttribute('data-src');
+            var extension = (src.match(/\.(\w+)$/) || [, ''])[1];
+            var language = 'php';
+
+            var code = document.createElement('code');
+            code.className = 'language-' + language;
+
+            pre.textContent = '';
+
+            code.textContent = 'Loading…';
+
+            pre.appendChild(code);
+
+            var xhr = new XMLHttpRequest();
+
+            xhr.open('GET', src, true);
+
+            xhr.onreadystatechange = function () {
+                if (xhr.readyState == 4) {
+
+                    if (xhr.status < 400 && xhr.responseText) {
+                        code.textContent = xhr.responseText;
+
+                        Prism.highlightElement(code);
+                    }
+                    else if (xhr.status >= 400) {
+                        code.textContent = '✖ Error ' + xhr.status + ' while fetching file: ' + xhr.statusText;
+                    }
+                    else {
+                        code.textContent = '✖ Error: File does not exist or is empty';
+                    }
+                }
+            };
+
+            xhr.send(null);
+        });
+    }
+
+    $(document).ready(function(){
+        loadExternalCodeSnippets();
+    });
+    $('#source-view').on('shown', function () {
+        loadExternalCodeSnippets();
+    })
+</script>
+
+    <link rel="shortcut icon" href="../images/favicon.ico"/>
+    <link rel="apple-touch-icon" href="../images/apple-touch-icon.png"/>
+    <link rel="apple-touch-icon" sizes="72x72" href="../images/apple-touch-icon-72x72.png"/>
+    <link rel="apple-touch-icon" sizes="114x114" href="../images/apple-touch-icon-114x114.png"/>
+</head>
+<body>
+
+<div class="navbar navbar-fixed-top">
+    <div class="navbar-inner">
+        <div class="container">
+            <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                <i class="icon-ellipsis-vertical"></i>
+            </a>
+            <a class="brand" href="../index.html">API Documentation</a>
+
+            <div class="nav-collapse">
+                <ul class="nav pull-right">
+                                        <li class="dropdown">
+                        <a href="../index.html" class="dropdown-toggle" data-toggle="dropdown">
+                            API Documentation <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                                                        <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                    </ul>
+                    </li>
+                                        <li class="dropdown" id="charts-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Charts <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../graphs/class.html">
+                                    <i class="icon-list-alt"></i>&#160;Class hierarchy diagram
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li class="dropdown" id="reports-menu">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">
+                            Reports <b class="caret"></b>
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li>
+                                <a href="../reports/errors.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Errors <span class="label label-info pull-right">99</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/markers.html">
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                <i class="icon-list-alt"></i>&#160;Markers <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                            <li>
+                                <a href="../reports/deprecated.html">
+                                                                                                            <i class="icon-list-alt"></i>&#160;Deprecated <span class="label label-info pull-right">0</span>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--<div class="go_to_top">-->
+    <!--<a href="#___" style="color: inherit">Back to top&#160;&#160;<i class="icon-upload icon-white"></i></a>-->
+    <!--</div>-->
+</div>
+
+<div id="___" class="container-fluid">
+        <section class="row-fluid">
+        <div class="span2 sidebar">
+                                <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle " data-toggle="collapse" data-target="#namespace-1507900355"></a>
+                                <a href="../namespaces/default.html" style="margin-left: 30px; padding-left: 0">\</a>
+            </div>
+            <div id="namespace-1507900355" class="accordion-body collapse in">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-367513113"></a>
+                                <a href="../namespaces/Swagger.html" style="margin-left: 30px; padding-left: 0">Swagger</a>
+            </div>
+            <div id="namespace-367513113" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-39236443"></a>
+                                <a href="../namespaces/Swagger.Client.html" style="margin-left: 30px; padding-left: 0">Client</a>
+            </div>
+            <div id="namespace-39236443" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-1679750404"></a>
+                                <a href="../namespaces/Swagger.Client.Api.html" style="margin-left: 30px; padding-left: 0">Api</a>
+            </div>
+            <div id="namespace-1679750404" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Api.BindingsApi.html">BindingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ChannelTypesApi.html">ChannelTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ConfigDescriptionsApi.html">ConfigDescriptionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DefaultApi.html">DefaultApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.DiscoveryApi.html">DiscoveryApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ExtensionsApi.html">ExtensionsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabotApi.html">HabotApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.HabpanelApi.html">HabpanelApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.InboxApi.html">InboxApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ItemsApi.html">ItemsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.LinksApi.html">LinksApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.PersistenceApi.html">PersistenceApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ProfileTypesApi.html">ProfileTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ServicesApi.html">ServicesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.SitemapsApi.html">SitemapsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingsApi.html">ThingsApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.ThingTypesApi.html">ThingTypesApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.UuidApi.html">UuidApi</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Api.VoiceApi.html">VoiceApi</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                                                    <div class="accordion" style="margin-bottom: 0">
+        <div class="accordion-group">
+            <div class="accordion-heading">
+                                    <a class="accordion-toggle collapsed" data-toggle="collapse" data-target="#namespace-63117551"></a>
+                                <a href="../namespaces/Swagger.Client.Model.html" style="margin-left: 30px; padding-left: 0">Model</a>
+            </div>
+            <div id="namespace-63117551" class="accordion-body collapse ">
+                <div class="accordion-inner">
+
+                    
+                    <ul>
+                                                    <li class="interface"><a href="../classes/Swagger.Client.Model.ModelInterface.html">ModelInterface</a></li>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.Model.BindingInfoDTO.html">BindingInfoDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Card.html">Card</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Channel.html">Channel</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDefinitionDTO.html">ChannelDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelDTO.html">ChannelDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelGroupDefinitionDTO.html">ChannelGroupDefinitionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeDTO.html">ChannelTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelTypeUID.html">ChannelTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChannelUID.html">ChannelUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ChatReply.html">ChatReply</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Component.html">Component</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionDTO.html">ConfigDescriptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterDTO.html">ConfigDescriptionParameterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigDescriptionParameterGroupDTO.html">ConfigDescriptionParameterGroupDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ConfigurableServiceDTO.html">ConfigurableServiceDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.DiscoveryResultDTO.html">DiscoveryResultDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedItemDTO.html">EnrichedItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html">EnrichedThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.EventOutput.html">EventOutput</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FilterCriteriaDTO.html">FilterCriteriaDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.FirmwareStatusDTO.html">FirmwareStatusDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupFunctionDTO.html">GroupFunctionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.GroupItemDTO.html">GroupItemDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HistoryDataBean.html">HistoryDataBean</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.HumanLanguageInterpreterDTO.html">HumanLanguageInterpreterDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Intent.html">Intent</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemChannelLinkDTO.html">ItemChannelLinkDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ItemHistoryDTO.html">ItemHistoryDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MappingDTO.html">MappingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.MetadataDTO.html">MetadataDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.PageDTO.html">PageDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ParameterOptionDTO.html">ParameterOptionDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ProfileTypeDTO.html">ProfileTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.SitemapDTO.html">SitemapDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateDescription.html">StateDescription</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StateOption.html">StateOption</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.StrippedThingTypeDTO.html">StrippedThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Thing.html">Thing</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingDTO.html">ThingDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingHandler.html">ThingHandler</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingStatusInfo.html">ThingStatusInfo</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeDTO.html">ThingTypeDTO</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingTypeUID.html">ThingTypeUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.ThingUID.html">ThingUID</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.Type.html">Type</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Model.WidgetDTO.html">WidgetDTO</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                                    <li class="class"><a href="../classes/Swagger.Client.ApiException.html">ApiException</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.Configuration.html">Configuration</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.HeaderSelector.html">HeaderSelector</a></li>
+                                                    <li class="class"><a href="../classes/Swagger.Client.ObjectSerializer.html">ObjectSerializer</a></li>
+                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+                    
+                    <ul>
+                                                                                            </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+        </div>
+    </section>
+    <section class="row-fluid">
+        <div class="span10 offset2">
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <nav>
+                                                <a href="../namespaces/Swagger.Client.Model.html">\Swagger\Client\Model</a> <i class="icon-level-up"></i>
+                                            </nav>
+                    <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal"><i class="icon-code"></i></a>
+
+                    <h1><small>\Swagger\Client\Model</small>EnrichedThingDTO</h1>
+                    <p><em>EnrichedThingDTO Class Doc Comment</em></p>
+                    
+                    
+                                        
+                    <section id="summary">
+                        <h2>Summary</h2>
+                        <section class="row-fluid heading">
+                            <section class="span4">
+                                <a href="#methods">Methods</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#properties">Properties</a>
+                            </section>
+                            <section class="span4">
+                                <a href="#constants">Constants</a>
+                            </section>
+                        </section>
+                        <section class="row-fluid public">
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_swaggerTypes" class="">swaggerTypes()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_swaggerFormats" class="">swaggerFormats()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_attributeMap" class="">attributeMap()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setters" class="">setters()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getters" class="">getters()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getModelName" class="">getModelName()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method___construct" class="">__construct()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_listInvalidProperties" class="">listInvalidProperties()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_valid" class="">valid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getLabel" class="">getLabel()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setLabel" class="">setLabel()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getBridgeUid" class="">getBridgeUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setBridgeUid" class="">setBridgeUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getConfiguration" class="">getConfiguration()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setConfiguration" class="">setConfiguration()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getProperties" class="">getProperties()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setProperties" class="">setProperties()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getUid" class="">getUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setUid" class="">setUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getThingTypeUid" class="">getThingTypeUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setThingTypeUid" class="">setThingTypeUid()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getChannels" class="">getChannels()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setChannels" class="">setChannels()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getLocation" class="">getLocation()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setLocation" class="">setLocation()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getStatusInfo" class="">getStatusInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setStatusInfo" class="">setStatusInfo()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getFirmwareStatus" class="">getFirmwareStatus()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setFirmwareStatus" class="">setFirmwareStatus()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_getEditable" class="">getEditable()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_setEditable" class="">setEditable()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_offsetExists" class="">offsetExists()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_offsetGet" class="">offsetGet()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_offsetSet" class="">offsetSet()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method_offsetUnset" class="">offsetUnset()</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#method___toString" class="">__toString()</a><br />
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No public properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#constant_DISCRIMINATOR" class="">DISCRIMINATOR</a><br />
+                                                            </section>
+                        </section>
+                        <section class="row-fluid protected">
+                            <section class="span4">
+                                                                    <em>No protected methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_swaggerModelName" class="">$swaggerModelName</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_swaggerTypes" class="">$swaggerTypes</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_swaggerFormats" class="">$swaggerFormats</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_attributeMap" class="">$attributeMap</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_setters" class="">$setters</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_getters" class="">$getters</a><br />
+                                                                    <a href="../classes/Swagger.Client.Model.EnrichedThingDTO.html#property_container" class="">$container</a><br />
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                        <section class="row-fluid private">
+                            <section class="span4">
+                                                                    <em>No private methods found</em>
+                                                            </section>
+                            <section class="span4">
+                                                                    <em>No private properties found</em>
+                                                            </section>
+                            <section class="span4">
+                                <em>N/A</em>
+                            </section>
+                        </section>
+                    </section>
+                </div>
+                <aside class="span4 detailsbar">
+                                        
+                    
+                    <dl>
+                        <dt>File</dt>
+                            <dd><a href="../files/Model.EnrichedThingDTO.html"><div class="path-wrapper">Model/EnrichedThingDTO.php</div></a></dd>
+                                                <dt>Package</dt>
+                            <dd><div class="namespace-wrapper">Swagger\Client</div></dd>
+                                                <dt>Class hierarchy</dt>
+                            <dd class="hierarchy">
+                                                                                                                                                                    <div class="namespace-wrapper">\Swagger\Client\Model\EnrichedThingDTO</div>
+                            </dd>
+
+                                                                            <dt>Implements</dt>
+                                                        <dd><a href="../classes/Swagger.Client.Model.ModelInterface.html"><div class="namespace-wrapper">\Swagger\Client\Model\ModelInterface</div></a></dd>
+                                                                                <dd><a href=""><div class="namespace-wrapper"></div></a></dd>
+                        
+                        
+                        
+                                                                            <dt>See also</dt>
+                                                                                        <dd><a href="https://github.com/swagger-api/swagger-codegen"><span class="namespace-wrapper">https://github.com/swagger-api/swagger-codegen</span></a></dd>
+                                                    
+                                                                        </dl>
+                    <h2>Tags</h2>
+                    <table class="table table-condensed">
+                                            <tr>
+                            <th>
+                                category
+                            </th>
+                            <td>
+                                                                    <p>Class</p>
+                                                            </td>
+                        </tr>
+                                            <tr>
+                            <th>
+                                author
+                            </th>
+                            <td>
+                                                                    <p>Swagger Codegen team</p>
+                                                            </td>
+                        </tr>
+                                        </table>
+                </aside>
+            </div>
+
+                                    <a id="constants" name="constants"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Constants</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="constant_DISCRIMINATOR" name="constant_DISCRIMINATOR" class="anchor"></a>
+            <article id="constant_DISCRIMINATOR" class="constant">
+                <h3 class="">DISCRIMINATOR</h3>
+                <pre class="signature">DISCRIMINATOR</pre>
+                <p><em></em></p>
+                
+            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                            
+                                    <a id="properties" name="properties"></a>
+            <div class="row-fluid">
+                <div class="span8 content class">
+                    <h2>Properties</h2>
+                </div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_swaggerModelName" name="property_swaggerModelName" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$swaggerModelName</h3>
+                <pre class="signature">$swaggerModelName : string</pre>
+                <p><em>The original name of the model.</em></p>
+                
+
+                                <h4>Type</h4>
+                string
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_swaggerTypes" name="property_swaggerTypes" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$swaggerTypes</h3>
+                <pre class="signature">$swaggerTypes : array&lt;mixed,string&gt;</pre>
+                <p><em>Array of property to type mappings. Used for (de)serialization</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,string&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_swaggerFormats" name="property_swaggerFormats" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$swaggerFormats</h3>
+                <pre class="signature">$swaggerFormats : array&lt;mixed,string&gt;</pre>
+                <p><em>Array of property to format mappings. Used for (de)serialization</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,string&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_attributeMap" name="property_attributeMap" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$attributeMap</h3>
+                <pre class="signature">$attributeMap : array&lt;mixed,string&gt;</pre>
+                <p><em>Array of attributes where the key is the local name,
+and the value is the original name</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,string&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_setters" name="property_setters" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$setters</h3>
+                <pre class="signature">$setters : array&lt;mixed,string&gt;</pre>
+                <p><em>Array of attributes to setter functions (for deserialization of responses)</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,string&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_getters" name="property_getters" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$getters</h3>
+                <pre class="signature">$getters : array&lt;mixed,string&gt;</pre>
+                <p><em>Array of attributes to getter functions (for serialization of requests)</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,string&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="property_container" name="property_container" class="anchor"></a>
+            <article class="property">
+                <h3 class="protected ">$container</h3>
+                <pre class="signature">$container : array&lt;mixed,mixed&gt;</pre>
+                <p><em>Associative array for storing property values</em></p>
+                
+
+                                <h4>Type</h4>
+                array&lt;mixed,mixed&gt;
+                                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                        <dl>
+                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                            
+                                    <a id="methods" name="methods"></a>
+            <div class="row-fluid">
+                <div class="span8 content class"><h2>Methods</h2></div>
+                <aside class="span4 detailsbar"></aside>
+            </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_swaggerTypes" name="method_swaggerTypes" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">swaggerTypes()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">swaggerTypes() : array</pre>
+                <p><em>Array of property to type mappings. Used for (de)serialization</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_swaggerFormats" name="method_swaggerFormats" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">swaggerFormats()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">swaggerFormats() : array</pre>
+                <p><em>Array of property to format mappings. Used for (de)serialization</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_attributeMap" name="method_attributeMap" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">attributeMap()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">attributeMap() : array</pre>
+                <p><em>Array of attributes where the key is the local name,
+and the value is the original name</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setters" name="method_setters" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setters()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setters() : array</pre>
+                <p><em>Array of attributes to setter functions (for deserialization of responses)</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getters" name="method_getters" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getters()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getters() : array</pre>
+                <p><em>Array of attributes to getter functions (for serialization of requests)</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                            <span class="label label-info">static</span>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getModelName" name="method_getModelName" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getModelName()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getModelName() : string</pre>
+                <p><em>The original name of the model.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___construct" name="method___construct" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__construct()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__construct(array&lt;mixed,mixed&gt;  <span class="argument">$data = null</span>) </pre>
+                <p><em>Constructor</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,mixed&gt;</td>
+                                <td>$data </td>
+                                <td><p>Associated array of property values
+initializing the model</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_listInvalidProperties" name="method_listInvalidProperties" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">listInvalidProperties()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">listInvalidProperties() : array</pre>
+                <p><em>Show all the invalid properties with reasons.</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array
+                                            &mdash; <p>invalid properties with reasons</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_valid" name="method_valid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">valid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">valid() : boolean</pre>
+                <p><em>Validate all the properties in the model
+return true if all passed</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                            &mdash; <p>True if all properties are valid</p>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLabel" name="method_getLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLabel() : string</pre>
+                <p><em>Gets label</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLabel" name="method_setLabel" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLabel()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLabel(string  <span class="argument">$label</span>) : $this</pre>
+                <p><em>Sets label</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$label </td>
+                                <td><p>label</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getBridgeUid" name="method_getBridgeUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getBridgeUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getBridgeUid() : string</pre>
+                <p><em>Gets bridge_uid</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setBridgeUid" name="method_setBridgeUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setBridgeUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setBridgeUid(string  <span class="argument">$bridge_uid</span>) : $this</pre>
+                <p><em>Sets bridge_uid</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$bridge_uid </td>
+                                <td><p>bridge_uid</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getConfiguration" name="method_getConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getConfiguration() : \Swagger\Client\Model\map[string,object]</pre>
+                <p><em>Gets configuration</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Swagger\Client\Model\map[string,object]
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setConfiguration" name="method_setConfiguration" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setConfiguration()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setConfiguration(\Swagger\Client\Model\map[string,object]  <span class="argument">$configuration</span>) : $this</pre>
+                <p><em>Sets configuration</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Swagger\Client\Model\map[string,object]</td>
+                                <td>$configuration </td>
+                                <td><p>configuration</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getProperties" name="method_getProperties" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getProperties()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getProperties() : \Swagger\Client\Model\map[string,string]</pre>
+                <p><em>Gets properties</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    \Swagger\Client\Model\map[string,string]
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setProperties" name="method_setProperties" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setProperties()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setProperties(\Swagger\Client\Model\map[string,string]  <span class="argument">$properties</span>) : $this</pre>
+                <p><em>Sets properties</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>\Swagger\Client\Model\map[string,string]</td>
+                                <td>$properties </td>
+                                <td><p>properties</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getUid" name="method_getUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getUid() : string</pre>
+                <p><em>Gets uid</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setUid" name="method_setUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setUid(string  <span class="argument">$uid</span>) : $this</pre>
+                <p><em>Sets uid</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$uid </td>
+                                <td><p>uid</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getThingTypeUid" name="method_getThingTypeUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getThingTypeUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getThingTypeUid() : string</pre>
+                <p><em>Gets thing_type_uid</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setThingTypeUid" name="method_setThingTypeUid" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setThingTypeUid()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setThingTypeUid(string  <span class="argument">$thing_type_uid</span>) : $this</pre>
+                <p><em>Sets thing_type_uid</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$thing_type_uid </td>
+                                <td><p>thing_type_uid</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getChannels" name="method_getChannels" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getChannels()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getChannels() : array&lt;mixed,\Swagger\Client\Model\ChannelDTO&gt;</pre>
+                <p><em>Gets channels</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    array&lt;mixed,<a href="../classes/Swagger.Client.Model.ChannelDTO.html">\Swagger\Client\Model\ChannelDTO</a>&gt;
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setChannels" name="method_setChannels" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setChannels()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setChannels(array&lt;mixed,\Swagger\Client\Model\ChannelDTO&gt;  <span class="argument">$channels</span>) : $this</pre>
+                <p><em>Sets channels</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>array&lt;mixed,<a href="../classes/Swagger.Client.Model.ChannelDTO.html">\Swagger\Client\Model\ChannelDTO</a>&gt;</td>
+                                <td>$channels </td>
+                                <td><p>channels</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getLocation" name="method_getLocation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getLocation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getLocation() : string</pre>
+                <p><em>Gets location</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setLocation" name="method_setLocation" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setLocation()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setLocation(string  <span class="argument">$location</span>) : $this</pre>
+                <p><em>Sets location</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>string</td>
+                                <td>$location </td>
+                                <td><p>location</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getStatusInfo" name="method_getStatusInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getStatusInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getStatusInfo() : \Swagger\Client\Model\ThingStatusInfo</pre>
+                <p><em>Gets status_info</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Swagger.Client.Model.ThingStatusInfo.html">\Swagger\Client\Model\ThingStatusInfo</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setStatusInfo" name="method_setStatusInfo" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setStatusInfo()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setStatusInfo(\Swagger\Client\Model\ThingStatusInfo  <span class="argument">$status_info</span>) : $this</pre>
+                <p><em>Sets status_info</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.Model.ThingStatusInfo.html">\Swagger\Client\Model\ThingStatusInfo</a></td>
+                                <td>$status_info </td>
+                                <td><p>status_info</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getFirmwareStatus" name="method_getFirmwareStatus" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getFirmwareStatus()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getFirmwareStatus() : \Swagger\Client\Model\FirmwareStatusDTO</pre>
+                <p><em>Gets firmware_status</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    <a href="../classes/Swagger.Client.Model.FirmwareStatusDTO.html">\Swagger\Client\Model\FirmwareStatusDTO</a>
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setFirmwareStatus" name="method_setFirmwareStatus" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setFirmwareStatus()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setFirmwareStatus(\Swagger\Client\Model\FirmwareStatusDTO  <span class="argument">$firmware_status</span>) : $this</pre>
+                <p><em>Sets firmware_status</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td><a href="../classes/Swagger.Client.Model.FirmwareStatusDTO.html">\Swagger\Client\Model\FirmwareStatusDTO</a></td>
+                                <td>$firmware_status </td>
+                                <td><p>firmware_status</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_getEditable" name="method_getEditable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">getEditable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">getEditable() : boolean</pre>
+                <p><em>Gets editable</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_setEditable" name="method_setEditable" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">setEditable()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">setEditable(boolean  <span class="argument">$editable</span>) : $this</pre>
+                <p><em>Sets editable</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>boolean</td>
+                                <td>$editable </td>
+                                <td><p>editable</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    $this
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetExists" name="method_offsetExists" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetExists()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetExists(integer  <span class="argument">$offset</span>) : boolean</pre>
+                <p><em>Returns true if offset exists. False otherwise.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Offset</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    boolean
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetGet" name="method_offsetGet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetGet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetGet(integer  <span class="argument">$offset</span>) : mixed</pre>
+                <p><em>Gets offset.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Offset</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                                    <h4>Returns</h4>
+                    mixed
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetSet" name="method_offsetSet" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetSet()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetSet(integer  <span class="argument">$offset</span>, mixed  <span class="argument">$value</span>) : void</pre>
+                <p><em>Sets value based on offset.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Offset</p></td>
+                            </tr>
+                                                    <tr>
+                                <td>mixed</td>
+                                <td>$value </td>
+                                <td><p>Value to be set</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method_offsetUnset" name="method_offsetUnset" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">offsetUnset()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">offsetUnset(integer  <span class="argument">$offset</span>) : void</pre>
+                <p><em>Unsets offset.</em></p>
+                
+
+                                    <h4>Parameters</h4>
+                    <table class="table table-condensed table-hover">
+                                                    <tr>
+                                <td>integer</td>
+                                <td>$offset </td>
+                                <td><p>Offset</p></td>
+                            </tr>
+                                            </table>
+                
+                
+                				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                    <div class="row-fluid">
+        <div class="span8 content class">
+            <a id="method___toString" name="method___toString" class="anchor"></a>
+            <article class="method">
+                <h3 class="public ">__toString()</h3>
+                <a href="#source-view" role="button" class="pull-right btn" data-toggle="modal" style="font-size: 1.1em; padding: 9px 14px"><i class="icon-code"></i></a>
+                <pre class="signature" style="margin-right: 54px;">__toString() : string</pre>
+                <p><em>Gets the string presentation of the object</em></p>
+                
+
+                
+                
+                                    <h4>Returns</h4>
+                    string
+                                    				
+                            </article>
+        </div>
+        <aside class="span4 detailsbar">
+            <h1><i class="icon-arrow-down"></i></h1>
+                                                            <dl>
+                                                                            </dl>
+            <h2>Tags</h2>
+            <table class="table table-condensed">
+                                    <tr><td colspan="2"><em>None found</em></td></tr>
+                            </table>
+        </aside>
+    </div>
+
+                                                                    </div>
+    </section>
+
+    <div id="source-view" class="modal hide fade" tabindex="-1" role="dialog" aria-labelledby="source-view-label" aria-hidden="true">
+        <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+            <h3 id="source-view-label">EnrichedThingDTO.php</h3>
+        </div>
+        <div class="modal-body">
+            <pre data-src="../files/Model/EnrichedThingDTO.php.txt" class="language-php line-numbers"></pre>
+        </div>
+    </div>
+
+    <footer class="row-fluid">
+        <section class="span10 offset2">
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <section class="row-fluid footer-sections">
+                        <section class="span4">
+                                                        <h1><i class="icon-code"></i></h1>
+                            <div>
+                                <ul>
+                                                                            <li><a href="../namespaces/Swagger.html">\Swagger</a></li>
+                                                                    </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-bar-chart"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../graphs/class.html">Class Hierarchy Diagram</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                        <section class="span4">
+                                                        <h1><i class="icon-pushpin"></i></h1>
+                            <div>
+                                <ul>
+                                    <li><a href="../reports/errors.html">Errors</a></li>
+                                    <li><a href="../reports/markers.html">Markers</a></li>
+                                </ul>
+                            </div>
+                        </section>
+                    </section>
+                </section>
+            </section>
+            <section class="row-fluid">
+                <section class="span10 offset1">
+                    <hr />
+                    Documentation is powered by <a href="http://www.phpdoc.org/">phpDocumentor </a> and authored
+                    on January 6th, 2020 at 10:20.
+                </section>
+            </section>
+        </section>
+    </footer>
+</div>
+
+</body>
+</html>
